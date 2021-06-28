@@ -25,7 +25,7 @@ for (let i = 0; i < fields.length; i++) {
 
 resetButton.addEventListener("click", resetGame);
 
-
+/* Symbols */
 function addSymbolToField(field) {
     let fieldContent = field.textContent;
     
@@ -46,7 +46,7 @@ function addSymbolToField(field) {
         return;
     }
 }
-
+/* Fields */
 const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -60,7 +60,7 @@ const winningConditions = [
 
 let gameState = ["", "", "", "", "", "", "", "", ""];
 
-
+/* CHECK FOR WINNER */
 function checkWinner() {
     console.log(gameState)
     for(let i = 0; i < fields.length; i++)  {
@@ -69,7 +69,7 @@ function checkWinner() {
     }
 
     let roundWon = false;
-
+/* LOSE/TIE Game */
     for (let i = 0; i < 8; i++) {
         const winCondition = winningConditions[i];
         let a = gameState[winCondition[0]];
@@ -83,20 +83,20 @@ function checkWinner() {
             break
         }
     }
-
+/* WIN Alert */
     if (roundWon) {
         for(let i = 0; i < players.length; i++) {
             let player = players[i];
-            alert("You won!")
+            alert("YOU WON!!")
 
             if(currentSymbol === player.symbol) {
                 player.addPoint();
-                alert(player.name + " has won & has " + player.points + " Points");
+                alert(player.name + " HAS WON & HAS " + player.points + " POINTS");
             }
         }
     }
 }
-
+/* RESET GAME */
 function resetGame() {
     for (let i = 0; fields.length > i; i++){
         fields[i].textContent = "";        

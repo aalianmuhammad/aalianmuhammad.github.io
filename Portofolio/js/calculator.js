@@ -55,7 +55,7 @@ class Calculator {
       this.operation = undefined
       this.previousOperand = ''
     }
-  
+    /* Display */
     getDisplayNumber(number) {
       const stringNumber = number.toString()
       const integerDigits = parseFloat(stringNumber.split('.')[0])
@@ -84,7 +84,7 @@ class Calculator {
       }
     }
   }
-  
+  /* Data Buttons */
   const numberButtons = document.querySelectorAll('[data-number]')
   const operationButtons = document.querySelectorAll('[data-operation]')
   const equalsButton = document.querySelector('[data-equals]')
@@ -94,7 +94,7 @@ class Calculator {
   const currentOperandTextElement = document.querySelector('[data-current-operand]')
   
   const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
-  //getallen
+  /* Numbers */
   numberButtons.forEach(button => {
     button.addEventListener('click', () => {
       calculator.appendNumber(button.innerText)
@@ -108,17 +108,17 @@ class Calculator {
       calculator.updateDisplay()
     })
   })
-  // = knop
+  /* Button */
   equalsButton.addEventListener('click', button => {
     calculator.compute()
     calculator.updateDisplay()
   })
-  //Verwijderd alles
+  /* Delete Everything */
   allClearButton.addEventListener('click', button => {
     calculator.clear()
     calculator.updateDisplay()
   })
-  // Verwijder knop
+  /* Delete Button */
   deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
