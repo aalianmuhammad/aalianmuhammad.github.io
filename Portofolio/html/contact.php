@@ -80,22 +80,38 @@
                     </div>
                 </div>
                 <div class="contactForm">
-                    <form>
+                <hr>
+                    <?php
+                    $Msg = "";
+                    if(isset($_GET['error']))
+                    {
+                        $Msg = " Vull de lege velden in. ";
+                        echo '<div class="alert alert-danger">'.$Msg.'</div>';
+                    }
+
+                    if(isset($_GET['success']))
+                    {
+                        $Msg = " Uw bericht is verzonden! ";
+                        echo '<div class="alert alert-success">'.$Msg.'</div>';
+                    }
+
+                    ?>
+                    <form action="process.php" method="post">
                         <h2>Send Message</h2>
                         <div class="inputBox">
-                            <input type="text" name="" required="required">
+                            <input type="text" name="FullName">
                             <span>Full Name</span>
                         </div>
                         <div class="inputBox">
-                            <input type="text" name="" required="required">
+                            <input type="text" name="E-mail">
                             <span>E-mail</span>
                         </div>
                         <div class="inputBox">
-                            <textarea required="required"></textarea>
+                            <textarea name="msg"></textarea>
                             <span>Type Your Message...</span>
                         </div>
                         <div class="inputBox">
-                            <input type="submit" name="" value="Send">
+                            <input type="submit" name="btn-send" value="Send">
                         </div>
                     </form>
                 </div>
