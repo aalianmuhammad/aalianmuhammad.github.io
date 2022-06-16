@@ -81,21 +81,6 @@
                 </div>
                 <div class="contactForm">
                 <hr>
-                    <?php
-                    $Msg = "";
-                    if(isset($_GET['error']))
-                    {
-                        $Msg = " Vull de lege velden in. ";
-                        echo '<div class="alert alert-danger">'.$Msg.'</div>';
-                    }
-
-                    if(isset($_GET['success']))
-                    {
-                        $Msg = " Uw bericht is verzonden! ";
-                        echo '<div class="alert alert-success">'.$Msg.'</div>';
-                    }
-
-                    ?>
                     <form action="process.php" method="post">
                         <h2>Send Message</h2>
                         <div class="inputBox">
